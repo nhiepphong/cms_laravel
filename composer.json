@@ -1,0 +1,26 @@
+{
+    "name": "nhiepphong/backend",
+    "description": "Backend custom by NhiepPhong",
+    "require": {
+        "php": ">=5.4.0",
+        "intervention/image": "^2.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nhiep Phong",
+            "email": "duyphong.tran@gmail.com"
+        }
+    ],
+
+    "autoload": {
+        "psr-4": {
+            "Nhiepphong\\Backend\\": "src/"
+        },
+        "files": [
+            "src/Helpers/MainHelper.php",
+            "src/Helpers/InputHelper.php"
+        ]
+    },
+    "minimum-stability": "dev"
+}
