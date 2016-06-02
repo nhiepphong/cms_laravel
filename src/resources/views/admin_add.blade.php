@@ -1,5 +1,7 @@
 @extends('backend::layout.backend')
 
+@section('title', $title)
+
 @section('content')
 
 @include('backend::includes.tool_add')

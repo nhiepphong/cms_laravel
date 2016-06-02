@@ -2,6 +2,8 @@
 
 <?php $id = intval($id_content);?>
 
+@section('title', $title)
+
 @section('content')
 
 @include('backend::includes.tool_list')
