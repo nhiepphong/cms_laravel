@@ -1,10 +1,10 @@
 # NhiepPhong/Backend is CMS for Laravel PHP Framework
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+[![Build Status](https://travis-ci.org/nhiepphong/cms_laravel.svg?branch=master)](https://travis-ci.org/nhiepphong/cms_laravel)
+[![Latest Stable Version](https://poser.pugx.org/nhiepphong/backend/v/stable)](https://packagist.org/packages/nhiepphong/backend)
+[![Total Downloads](https://poser.pugx.org/nhiepphong/backend/downloads)](https://packagist.org/packages/nhiepphong/backend)
+[![Latest Unstable Version](https://poser.pugx.org/nhiepphong/backend/v/unstable)](https://packagist.org/packages/nhiepphong/backend)
+[![License](https://poser.pugx.org/nhiepphong/backend/license)](https://packagist.org/packages/nhiepphong/backend)
 
 ### Requirements
 
@@ -38,5 +38,3 @@ php artisan vendor:publish --provider="Nhiepphong\Backend\Providers\BackendServi
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-
-composer require nhiepphong/backend
