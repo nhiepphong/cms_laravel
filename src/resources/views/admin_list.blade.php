@@ -252,16 +252,16 @@ function echoColumn($k,$v,$data)
             echo '</td>'; 
             break;
         case 'link':   
-            echo '<td><a href="'.$v[3].(isset($data->$v[4]) ? $data->$v[4] : "").'" title="View detail '.$v[1].'" target="'.(isset($v[5]) ? $v[5] : "_self").'">'.$data->$k.'</a></td>';
+            echo '<td><a href="'.$v[3].'/'.(isset($data->$v[4]) ? $data->$v[4] : "").'" title="View detail '.$v[1].'" target="'.(isset($v[5]) ? $v[5] : "_self").'">'.$data->$k.'</a></td>';
             break;
         case 'link_blank':   
-            echo '<td><a href="'.$v[2].$data->$v[3].'" target="_blank">'.$v[1].'</a></td>';
+            echo '<td><a href="'.$v[2].'/'.$data->$v[3].'" target="_blank">'.$v[1].'</a></td>';
             break;
         case 'push_notification':   
             echo '<td><a href="'.url('admin/send_notification/index/'.$data->$v[2]).'" target="_blank">PUSH</a></td>';
             break;
         case 'button_new_window':   
-            echo '<td><a href="javascript:void();" onClick="openNewWindow(\''.$v[2].$data->$v[3].'\');return false;" target="_blank">'.$v[1].'</a></td>';
+            echo '<td><a href="javascript:void();" onClick="openNewWindow(\''.$v[2].'/'.$data->$v[3].'\');return false;" target="_blank">'.$v[1].'</a></td>';
             break;
         default: 
             echo '<td>'.$col[2].'</td>'; 

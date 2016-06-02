@@ -46,23 +46,27 @@ Route::group(array('prefix' => 'admin', 'middleware' => ['web']), function()
     $menu = DB::table('admin_menu')->where('controller', '!=', 'NULL')->where("is_active", '1')->get();
     foreach ($menu as $dt) 
     {
-    	Route::get('/'.$dt->model.'/lists', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
-    	Route::get('/'.$dt->model.'/lists/{name}/{sort}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
-    	Route::get('/'.$dt->model.'/lists/{name}/{sort}/{start}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
-    	
-    	Route::get('/'.$dt->model.'/add', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@addData']);
-    	Route::get('/'.$dt->model.'/add/{id}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@addData']);
+        Route::get('/'.$dt->model.'/lists', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        Route::get('/'.$dt->model.'/lists/{parent_id}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        Route::get('/'.$dt->model.'/lists/{name}/{sort}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        Route::get('/'.$dt->model.'/lists/{name}/{sort}/{start}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        Route::get('/'.$dt->model.'/lists/{parent_id}/{name}/{sort}/{start}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        
+        Route::get('/'.$dt->model.'/add', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@addData']);
+        Route::get('/'.$dt->model.'/add/{id}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@addData']);
 
         Route::get('/'.$dt->model.'/edit/{id}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@editData']);
 
         Route::get('/'.$dt->model.'/delete/{id}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@deleteData']);
 
-    	Route::post('/'.$dt->model.'/lists', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
-    	Route::post('/'.$dt->model.'/lists/{name}/{sort}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
-    	Route::post('/'.$dt->model.'/lists/{name}/{sort}/{start}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
-    	
-    	Route::post('/'.$dt->model.'/add', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@addData']);
-    	Route::post('/'.$dt->model.'/add/{id}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@addData']);
+        Route::post('/'.$dt->model.'/lists', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        Route::post('/'.$dt->model.'/lists/{parent_id}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        Route::post('/'.$dt->model.'/lists/{name}/{sort}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        Route::post('/'.$dt->model.'/lists/{name}/{sort}/{start}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        Route::post('/'.$dt->model.'/lists/{parent_id}/{name}/{sort}/{start}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@index']);
+        
+        Route::post('/'.$dt->model.'/add', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@addData']);
+        Route::post('/'.$dt->model.'/add/{id}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@addData']);
 
         Route::post('/'.$dt->model.'/edit/{id}', ['uses' => 'App\Http\Controllers\Admin\\'.$dt->controller.'@editData']);
 
