@@ -25,7 +25,7 @@
             "src/database/migrations",
             "src/database/seeds",
             "src/Commands"
-        ],
+        ]
     },
     "minimum-stability": "dev"
 }
