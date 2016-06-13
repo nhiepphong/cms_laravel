@@ -35,6 +35,12 @@ Install Backend
 ```php 
 php artisan backend:install
 ```
+
+Copy Dashboad, Permissions
+
+```php 
+test/Admin to app/Http/Controller/Admin
+```
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).

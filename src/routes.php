@@ -39,9 +39,8 @@ Route::group(array('prefix' => 'admin', 'middleware' => ['web']), function()
 
     Route::get('/logout', 'Nhiepphong\Backend\Http\Controllers\AccountController@logout');
 
-    Route::get("/dashboard", 'Nhiepphong\Backend\Http\Controllers\BackendController@index');
-
-    Route::get("/dashboard", 'Nhiepphong\Backend\Http\Controllers\BackendController@index');
+    Route::get("/dashboard", 'App\Http\Controllers\Admin\DashboardController@index');
+    Route::post("/dashboard", 'App\Http\Controllers\Admin\DashboardController@index');
 
     if(Schema::hasTable('admin_menu'))
     {
