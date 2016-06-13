@@ -30,10 +30,10 @@ To install into a Laravel project, first do the composer install then add *ONE *
 Nhiepphong\Backend\Providers\BackendServiceProvider::class,
 ```
 
-Publish the storage configuration file.
+Install Backend
 
 ```php 
-php artisan vendor:publish --provider="Nhiepphong\Backend\Providers\BackendServiceProvider"
+php artisan backend:install
 ```
 ## License
 

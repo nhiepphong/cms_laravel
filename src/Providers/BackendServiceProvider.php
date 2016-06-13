@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Sentinel;
+use Nhiepphong\Backend\Commands;
 
 class BackendServiceProvider extends ServiceProvider
 {
@@ -40,8 +41,6 @@ class BackendServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //$this->app->make('Nhiepphong\Backend\Http\Controllers\BackendController');
-
         require_once __DIR__ . '/../Helpers/MainHelper.php';
         require_once __DIR__ . '/../Helpers/InputHelper.php';
 
@@ -55,6 +54,13 @@ class BackendServiceProvider extends ServiceProvider
          */
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
         $loader->alias('Image', 'Intervention\Image\Facades\Image');
+
+        $this->app['backend::install'] = $this->app->share(function()
+        {
+            return new \Nhiepphong\Backend\Commands\BackendCommand();
+        });
+
+        $this->commands('backend::install');
 
     }
 }
