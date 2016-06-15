@@ -5411,6 +5411,10 @@ border-left: 3px solid transparent;
 .db_box {
     padding: 15px;
 }
+.db_box_pointer{
+    cursor: pointer;
+}
+
 .r1_graph1, .r1_graph2, .r1_graph3 {
     min-height: 80px;
     width: 100%;

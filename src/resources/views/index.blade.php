@@ -18,35 +18,45 @@
     <section class="box nobox">
         <div class="content-body">
             
-            <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="r4_counter db_box">
-                        <i class='pull-left fa fa-users icon-md icon-rounded icon-primary'></i>
-                        <div class="stats">
-                            <h4><strong><?=(isset($count_user) ? $count_user : 0);?></strong></h4>
-                            <span>User Register</span>
-                        </div>
+            <?php 
+            if($data && count($data) > 0)
+            {
+                $i = 0;
+                foreach ($data as $dt)
+                {
+                    $icon   = $dt->icon;
+                    $link   = $dt->link;
+                    $value  = $dt->value;
+                    $name   = $dt->name;
+
+                    if($i%4 == 0)
+                    {
+                        echo '<div class="row">';
+                    }
+
+                    echo '<div class="col-md-3 col-sm-6 col-xs-6">
+                    <div class="r4_counter db_box db_box_pointer" onclick="location.href=\''.$link.'\';">
+                    <i class=\'pull-left fa fa-users icon-md icon-rounded '.$icon.'\'></i>
+                    <div class="stats">
+                    <h4><strong>'.$value.'</strong></h4>
+                    <span>'.$name.'</span>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="r4_counter db_box">
-                        <i class='pull-left fa fa-clipboard icon-md icon-rounded icon-purple'></i>
-                        <div class="stats">
-                            <h4><strong><?=(isset($count_edu_profile) ? $count_edu_profile : 0);?></strong></h4>
-                            <span>Count Edu Profile</span>
-                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-6">
-                    <div class="r4_counter db_box">
-                        <i class='pull-left fa fa-file-code-o icon-md icon-rounded icon-warning'></i>
-                        <div class="stats">
-                            <h4><strong><?=(isset($count_edu_subject) ? $count_edu_subject : 0);?></strong></h4>
-                            <span>Count Edu Subject</span>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- End .row -->	
+                    </div>';
+
+                    $i++;
+                    if($i%4 == 0)
+                    {
+                        echo '</div>';
+                    }
+                }
+
+                if($i%4 > 0)
+                {
+                    echo '</div>';
+                }
+            }
+            ?>
 
         </div>
     </section>
