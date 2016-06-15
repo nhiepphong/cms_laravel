@@ -36,7 +36,7 @@
 
                     echo '<div class="col-md-3 col-sm-6 col-xs-6">
                     <div class="r4_counter db_box db_box_pointer" onclick="location.href=\''.$link.'\';">
-                    <i class=\'pull-left fa fa-users icon-md icon-rounded '.$icon.'\'></i>
+                    <i class=\'pull-left fa icon-md icon-rounded '.$icon.'\'></i>
                     <div class="stats">
                     <h4><strong>'.$value.'</strong></h4>
                     <span>'.$name.'</span>
