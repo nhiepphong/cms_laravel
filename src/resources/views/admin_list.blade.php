@@ -41,7 +41,7 @@
                         <div class="col-xs-6">
                             <div id="example-1_filter" class="div_align_right">
                                 <?php 
-                                if($not_show_btn_add != 1)
+                                if($is_add == true)
                                 {
                                 ?>
                                 <a href="<?=url('admin/'.CONTROLLER.'/add/'.$id);?>" data-toggle="modal" class="btn btn-primary btn-add">Add New</a>
@@ -103,14 +103,20 @@
                                             
                                         }
                                         echo '<td width="70">';
-                                        echo '<a href="'.url('admin/'.CONTROLLER.'/edit/'.$dt->id).'" title="Edit" class="edit_record"><span class="glyphicon glyphicon-edit"></span></a>';
+                                        if($is_edit == true)
+                                        {
+                                            echo '<a href="'.url('admin/'.CONTROLLER.'/edit/'.$dt->id).'" title="Edit" class="edit_record"><span class="glyphicon glyphicon-edit"></span></a>';
+                                        }
                                         if(CONTROLLER == "permissions" && Session::get('admin_user_id') == $dt->id)
                                         {
 
                                         }
                                         else
                                         {
-                                            echo '<a href="javascript:void(0);" title="Delete" class="delete_record" ref="'.$dt->id.'"><span data-class="trash"><i class="fa fa-trash"></i></span></a>';
+                                            if($is_delete == true)
+                                            {
+                                                echo '<a href="javascript:void(0);" title="Delete" class="delete_record" ref="'.$dt->id.'"><span data-class="trash"><i class="fa fa-trash"></i></span></a>';
+                                            }
                                         }
                                         
                                         echo '</td>';

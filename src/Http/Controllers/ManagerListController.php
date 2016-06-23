@@ -17,9 +17,15 @@ class ManagerListController extends Controller
     public $table;
     public $fields;
     public $pagination;
+    public $is_add;
+    public $is_edit;
+    public $is_delete;
 
     public function __construct()
     {
+        $this->is_add = true;
+        $this->is_edit = true;
+        $this->is_delete = true;
         $this->pagination = new Pagination();
     }
 
@@ -101,14 +107,6 @@ class ManagerListController extends Controller
             $data['link'] = url('admin/'.CONTROLLER.'/lists/');
         $data['start'] = $start;
 
-        if(isset($dt['not_show_btn_add']))
-        {        
-            $data['not_show_btn_add'] = $dt['not_show_btn_add'];
-        }
-        else
-        {
-            $data['not_show_btn_add'] = 0;
-        }
 
         if(isset($dt['id_list']))
         {
@@ -118,6 +116,10 @@ class ManagerListController extends Controller
         {
             $data['id_content'] = 0;
         }
+
+        $data['is_add']     = $this->is_add;
+        $data['is_edit']    = $this->is_edit;
+        $data['is_delete']  = $this->is_delete;
         
         return view('backend::admin_list')->with($data);
     }
