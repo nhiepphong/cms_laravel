@@ -3,14 +3,14 @@
 //Đã Update
 if ( ! function_exists('input_label'))
 {
-	function input_label($name = '',$data = null)
-	{
-		$html = '<div class="form-group has-static">';
+    function input_label($name = '',$data = null)
+    {
+        $html = '<div class="form-group has-static">';
 
-		$type = $data[0];
-		$data = $data[1];
-		
-		$html .= '<label class="form-label">'.$data->label.'</label>';
+        $type = $data[0];
+        $data = $data[1];
+        
+        $html .= '<label class="form-label">'.$data->label.'</label>';
         
         if(property_exists($data,'description'))
         {
@@ -41,20 +41,20 @@ if ( ! function_exists('input_label'))
         $html .= '</div>';
         $html .= '</div>';
 
-		return $html;
-	}
+        return $html;
+    }
 }
 
 //Đã Update
 if ( ! function_exists('input_txt'))
 {
-	function input_txt($name = '',$data = null)
-	{
-		$html = '<div class="form-group has-static">';
-		
-		$type = $data[0];
-		$data = $data[1];
-		
+    function input_txt($name = '',$data = null)
+    {
+        $html = '<div class="form-group has-static">';
+        
+        $type = $data[0];
+        $data = $data[1];
+        
         $html .= '<label class="form-label">'.$data->label.'</label>';
         
         if(property_exists($data,'description'))
@@ -84,8 +84,8 @@ if ( ! function_exists('input_txt'))
         
         $html .= '</div>';
         $html .= '</div>';
-		return $html;
-	}
+        return $html;
+    }
 }
 
 //Đã Update
@@ -143,13 +143,13 @@ if ( ! function_exists('input_hide'))
 //Đã Update
 if ( ! function_exists('input_checkbox'))
 {
-	function input_checkbox($name = '',$data = null)
-	{
-		$html = '<div class="form-group has-static">';
-		
-		$type = $data[0];
-		$data = $data[1];
-		
+    function input_checkbox($name = '',$data = null)
+    {
+        $html = '<div class="form-group has-static">';
+        
+        $type = $data[0];
+        $data = $data[1];
+        
         $html .= '<label class="form-label">'.$data->label.'</label>';
         
         if(property_exists($data,'description'))
@@ -161,42 +161,42 @@ if ( ! function_exists('input_checkbox'))
         $html .= '<ul class="list-unstyled">';
 
         $permission_data = explode(',',$data->value);
-		
-		if(property_exists($data,'valueSource'))
-		{
-			$data_source = $data->valueSource;
-			$i = 0;
-			foreach($data_source as $dt)
-			{
-				$html .= '<li>';
-				$html .= '<input tabindex="5" type="checkbox" class="skin-square-blue" name="permissions[]" '.(in_array($dt->v,$permission_data) ? 'checked' : '').' value="'.$dt->v.'" id="permissions_'.$i.'">';
-				$html .= '<label class="icheck-label form-label" for="permissions_'.$i.'">'.$dt->k.'</label>';
-				$html .= '</li>';
-				$html .= '<label>';
-				$i++;
-			}
-		}
+        
+        if(property_exists($data,'valueSource'))
+        {
+            $data_source = $data->valueSource;
+            $i = 0;
+            foreach($data_source as $dt)
+            {
+                $html .= '<li>';
+                $html .= '<input tabindex="5" type="checkbox" class="skin-square-blue" name="permissions[]" '.(in_array($dt->v,$permission_data) ? 'checked' : '').' value="'.$dt->v.'" id="permissions_'.$i.'">';
+                $html .= '<label class="icheck-label form-label" for="permissions_'.$i.'">'.$dt->k.'</label>';
+                $html .= '</li>';
+                $html .= '<label>';
+                $i++;
+            }
+        }
         
         $html .= '</ul>';
         $html .= '</div>';
         $html .= '</div>';
 
-		return $html;
-	}
+        return $html;
+    }
 }
 
 //Đã Update
 if ( ! function_exists('input_radio'))
 {
-	function input_radio($name = '',$data = null)
-	{
+    function input_radio($name = '',$data = null)
+    {
 
 
-		$html = '<div class="form-group has-static">';
-		
-		$type = $data[0];
-		$data = $data[1];
-		
+        $html = '<div class="form-group has-static">';
+        
+        $type = $data[0];
+        $data = $data[1];
+        
         $html .= '<label class="form-label">'.$data->label.'</label>';
         
         if(property_exists($data,'description'))
@@ -221,10 +221,10 @@ if ( ! function_exists('input_radio'))
             foreach($data->valueSource as $k=>$v)
             {
                 $html .= '<li>';
-				$html .= '<input tabindex="5" type="radio" class="icheck-minimal-blue" '.($value == $k ? 'checked' : '').' name="'.$name.'" id="'.$name.'_'.$i.'" value="'.$k.'">';
-				$html .= '<label class="icheck-label form-label" for="'.$name.'_'.$i.'">'.$v.'</label>';
-				$html .= '</li>';
-				$i++;
+                $html .= '<input tabindex="5" type="radio" class="icheck-minimal-blue" '.($value == $k ? 'checked' : '').' name="'.$name.'" id="'.$name.'_'.$i.'" value="'.$k.'">';
+                $html .= '<label class="icheck-label form-label" for="'.$name.'_'.$i.'">'.$v.'</label>';
+                $html .= '</li>';
+                $i++;
             }
         }
         
@@ -232,9 +232,9 @@ if ( ! function_exists('input_radio'))
         $html .= '</div>';
         $html .= '</div>';
 
-		return $html;
+        return $html;
 
-	}
+    }
 }
 
 //Đã Update
@@ -337,13 +337,13 @@ if ( ! function_exists('input_img'))
 //Đã Update
 if ( ! function_exists('input_textarea'))
 {
-	function input_textarea($name = '',$data = null)
-	{
-		$html = '<div class="form-group has-static">';
-		
-		$type = $data[0];
-		$data = $data[1];
-		
+    function input_textarea($name = '',$data = null)
+    {
+        $html = '<div class="form-group has-static">';
+        
+        $type = $data[0];
+        $data = $data[1];
+        
         $html .= '<label class="form-label">'.$data->label.'</label>';
         
         if(property_exists($data,'description'))
@@ -384,21 +384,21 @@ if ( ! function_exists('input_textarea'))
             </script>";
             $row = 15;
         }
-		else if(property_exists($data,'type') && $data->type == 'flash')
-		{
-		
-		}
-		else
-		{
-		
-		}
+        else if(property_exists($data,'type') && $data->type == 'flash')
+        {
+        
+        }
+        else
+        {
+        
+        }
         $html .= '<textarea class="form-control wysiwyg" id="'.$name.'" name="'.$name.'" cols="79" rows="'.$row.'">'.$value.'</textarea>';
 
         $html .= '</div>';
         $html .= '</div>';
-		return $html;
+        return $html;
 
-	}
+    }
 }
 
 if ( ! function_exists('input_date'))
@@ -502,13 +502,13 @@ if ( ! function_exists('input_date'))
 //Đã Update
 if ( ! function_exists('input_select'))
 {
-	function input_select($name = '',$data = null)
-	{
-		$html = '<div class="form-group has-static">';
-		
-		$type = $data[0];
-		$data = $data[1];
-		
+    function input_select($name = '',$data = null)
+    {
+        $html = '<div class="form-group has-static">';
+        
+        $type = $data[0];
+        $data = $data[1];
+        
         $html .= '<label class="form-label">'.$data->label.'</label>';
         
         if(property_exists($data,'description'))
@@ -528,18 +528,18 @@ if ( ! function_exists('input_select'))
         }
 
         $html .= '<select name="'.$name.'" class="form-control m-bot15">';
-		$html .= '<option value="0" selected="selected">NONE</option>';
+        $html .= '<option value="0" selected="selected">NONE</option>';
         if(property_exists($data,'valueSource'))
         {
             foreach($data->valueSource as $dt)
             {
-                if($dt['k'] == $value)
+                if($dt->k == $value)
                 {
-                    $html .= '<option value="'.$dt['k'].'" selected="selected">'.$dt['v'].'</option>';
+                    $html .= '<option value="'.$dt->k.'" selected="selected">'.$dt->v.'</option>';
                 }   
                 else
                 {
-                    $html .= '<option value="'.$dt['k'].'">'.$dt['v'].'</option>';
+                    $html .= '<option value="'.$dt->k.'">'.$dt->v.'</option>';
                 }    
             }
         }
@@ -547,8 +547,8 @@ if ( ! function_exists('input_select'))
         
         $html .= '</div>';
         $html .= '</div>';
-		return $html;
-	}
+        return $html;
+    }
 }
 
 //Đã Update
@@ -585,13 +585,13 @@ if ( ! function_exists('input_select_multiple'))
         {
             foreach($data->valueSource as $dt)
             {
-                if($dt['k'] == $value)
+                if($dt->k == $value)
                 {
-                    $html .= '<option value="'.$dt['k'].'" selected="selected">'.$dt['v'].'</option>';
+                    $html .= '<option value="'.$dt->k.'" selected="selected">'.$dt->v.'</option>';
                 }   
                 else
                 {
-                    $html .= '<option value="'.$dt['k'].'">'.$dt['v'].'</option>';
+                    $html .= '<option value="'.$dt->k.'">'.$dt->v.'</option>';
                 }    
             }
         }
@@ -611,41 +611,41 @@ if ( ! function_exists('input_select_multiple'))
 
 if ( ! function_exists('input_autocomplete'))
 {
-	function input_autocomplete($name = '',$data = null)
-	{
-		$html_s = '<div class="formWizard">';
-		$html_s .= '<div class="row-fluid">';
+    function input_autocomplete($name = '',$data = null)
+    {
+        $html_s = '<div class="formWizard">';
+        $html_s .= '<div class="row-fluid">';
 
-		$html_e = '</div>';
-		$html_e .= '</div>';
-		
-		$type = $data[0];
-		$data = $data[1];
-		
+        $html_e = '</div>';
+        $html_e .= '</div>';
+        
+        $type = $data[0];
+        $data = $data[1];
+        
         $html = $html_s;
-		$html .= '<div class="span3">';
-		$html .= '<span class="fLabel">'.$data->label.'</span>';
-		$html .= '</div>';
-		$html .= '<div class="span9">';
+        $html .= '<div class="span3">';
+        $html .= '<span class="fLabel">'.$data->label.'</span>';
+        $html .= '</div>';
+        $html .= '<div class="span9">';
         if(property_exists($data,'value'))
         {
             $value_tmp = $data->value;
-			if($value_tmp['id'])
-			{
-				$value_id = $value_tmp['id'];
-			}
-			else
-			{
-				$value_id = '';
-			}
-			if($value_tmp['name'])
-			{
-				$value_label = $value_tmp['name'];
-			}
-			else
-			{
-				$value_label = '';
-			}
+            if($value_tmp['id'])
+            {
+                $value_id = $value_tmp['id'];
+            }
+            else
+            {
+                $value_id = '';
+            }
+            if($value_tmp['name'])
+            {
+                $value_label = $value_tmp['name'];
+            }
+            else
+            {
+                $value_label = '';
+            }
         }
         else
         {
@@ -661,50 +661,50 @@ if ( ! function_exists('input_autocomplete'))
             $link_get = '';
         }
         
-		$html .= '<script type="text/javascript">';
-		$html .= '$(function() {';
-		$html .= 'setAutoComplete("'.$name.'_autocomplete", "'.$name.'", "results", "'.$link_get.'/");';
-		$html .= '});';
-		$html .= '</script>';
+        $html .= '<script type="text/javascript">';
+        $html .= '$(function() {';
+        $html .= 'setAutoComplete("'.$name.'_autocomplete", "'.$name.'", "results", "'.$link_get.'/");';
+        $html .= '});';
+        $html .= '</script>';
         if(isset($value_id))
         {
             $html .= '<input class="text-input small-input" type="text" id="'.$name.'_autocomplete" name="'.$name.'_autocomplete" value="'.$value_label.'" />';
-			$html .= '<input type="hidden" name="'.$name.'" id="'.$name.'" value="'.$value_id.'" />';
+            $html .= '<input type="hidden" name="'.$name.'" id="'.$name.'" value="'.$value_id.'" />';
         }
         else
         {
             $html .= '<input class="text-input small-input" type="text" id="'.$name.'_autocomplete" name="'.$name.'_autocomplete" />';
-			$html .= '<input type="hidden" name="'.$name.'" id="'.$name.'" value="" />';
+            $html .= '<input type="hidden" name="'.$name.'" id="'.$name.'" value="" />';
         }
-		
+        
         if(property_exists($data,'description'))
         {
             $html .= '<br />';
             $html .= '<small>'.$data->description.'</small>';   
         }
-		$html .= '</div>';
-		$html .= $html_e;
-		return $html;
-	}
+        $html .= '</div>';
+        $html .= $html_e;
+        return $html;
+    }
 }
 if ( ! function_exists('input_tag'))
 {
-	function input_tag($name = '',$data = null)
-	{
-		$html_s = '<div class="formWizard">';
-		$html_s .= '<div class="row-fluid">';
+    function input_tag($name = '',$data = null)
+    {
+        $html_s = '<div class="formWizard">';
+        $html_s .= '<div class="row-fluid">';
 
-		$html_e = '</div>';
-		$html_e .= '</div>';
-		
-		$type = $data[0];
-		$data = $data[1];
-		
+        $html_e = '</div>';
+        $html_e .= '</div>';
+        
+        $type = $data[0];
+        $data = $data[1];
+        
         $html = $html_s;
-		$html .= '<div class="span3">';
-		$html .= '<span class="fLabel">'.$data->label.'</span>';
-		$html .= '</div>';
-		$html .= '<div class="span9">';
+        $html .= '<div class="span3">';
+        $html .= '<span class="fLabel">'.$data->label.'</span>';
+        $html .= '</div>';
+        $html .= '<div class="span9">';
         if(property_exists($data,'value'))
         {
             $value = $data->value;
@@ -723,92 +723,92 @@ if ( ! function_exists('input_tag'))
             $link_get = '';
         }
         
-		$html .= '<script type="text/javascript">';
-		$html .= '$(function() {';
-			$html .= "$('#".$name."').tagsInput({";
-			$html .= "width: 'auto',";
-			$html .= "defaultText:'Add Tag',";
-			$html .= "autocomplete_url:'".$link_get."'";
-			$html .= "});";
-		$html .= '});';
-		$html .= '</script>';
-		
+        $html .= '<script type="text/javascript">';
+        $html .= '$(function() {';
+            $html .= "$('#".$name."').tagsInput({";
+            $html .= "width: 'auto',";
+            $html .= "defaultText:'Add Tag',";
+            $html .= "autocomplete_url:'".$link_get."'";
+            $html .= "});";
+        $html .= '});';
+        $html .= '</script>';
+        
         $html .= '<input id="'.$name.'" name="'.$name.'" type="text" class="tags" value="'.$value.'"></p>';
-		
+        
         if(property_exists($data,'description'))
         {
             $html .= '<br />';
             $html .= '<small>'.$data->description.'</small>';   
         }
-		$html .= '</div>';
-		$html .= $html_e;
-		return $html;
-	}
+        $html .= '</div>';
+        $html .= $html_e;
+        return $html;
+    }
 }
 if ( ! function_exists('input_mp3'))
 {
-	function input_mp3($name = '',$link = '')
-	{
-		$html = '<script type="text/javascript">
-			$(document).ready(function(){
+    function input_mp3($name = '',$link = '')
+    {
+        $html = '<script type="text/javascript">
+            $(document).ready(function(){
 
-				$("#jquery_jplayer_1").jPlayer({
-					ready: function () {
-						$(this).jPlayer("setMedia", {
-							mp3:"'.$link.'"
-						});
-					},
-					swfPath: "'.ROOT_PUBLIC.'scripts/admin/jplayer",
-					supplied: "mp3",
-					wmode: "window"
-				});
-			});
-			</script>
-			<div class="wContent" align="center">
-			  <!-- Player start -->
-			  <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-			  <div id="jp_container_1" class="jp-audio">
-				<div class="jp-type-single">
-				  <div class="jp-gui jp-interface">
-					<ul class="jp-controls">
-					  <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
-					  <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
-					  <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
-					  <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-					  <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-					  <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
-					</ul>
-					<ul class="jp-toggles">
-					  <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
-					  <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
-					</ul>
-					<div class="jp-progress">
-					  <div class="jp-seek-bar">
-						<div class="jp-play-bar"></div>
+                $("#jquery_jplayer_1").jPlayer({
+                    ready: function () {
+                        $(this).jPlayer("setMedia", {
+                            mp3:"'.$link.'"
+                        });
+                    },
+                    swfPath: "'.ROOT_PUBLIC.'scripts/admin/jplayer",
+                    supplied: "mp3",
+                    wmode: "window"
+                });
+            });
+            </script>
+            <div class="wContent" align="center">
+              <!-- Player start -->
+              <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+              <div id="jp_container_1" class="jp-audio">
+                <div class="jp-type-single">
+                  <div class="jp-gui jp-interface">
+                    <ul class="jp-controls">
+                      <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                      <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                      <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                      <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                      <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                      <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+                    </ul>
+                    <ul class="jp-toggles">
+                      <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+                      <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+                    </ul>
+                    <div class="jp-progress">
+                      <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
 
-					  </div>
-					</div>
-					<div class="jp-volume-bar">
-					  <div class="jp-volume-bar-value"></div>
-					</div>
-					<div class="jp-current-time"></div>
-					<div class="jp-duration"></div>
-				  </div>
-				  <div class="jp-title">
-					<ul>
-					  <li>'.$name.'</li>
-					</ul>
-				  </div>
-				  <div class="jp-no-solution">
-					<span>Update Required</span>
-					To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-				  </div>
-				</div>
-			  </div>
-			  <!-- Player end -->
-			</div>';
-		return $html;
-	}
+                      </div>
+                    </div>
+                    <div class="jp-volume-bar">
+                      <div class="jp-volume-bar-value"></div>
+                    </div>
+                    <div class="jp-current-time"></div>
+                    <div class="jp-duration"></div>
+                  </div>
+                  <div class="jp-title">
+                    <ul>
+                      <li>'.$name.'</li>
+                    </ul>
+                  </div>
+                  <div class="jp-no-solution">
+                    <span>Update Required</span>
+                    To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                  </div>
+                </div>
+              </div>
+              <!-- Player end -->
+            </div>';
+        return $html;
+    }
 }
 if ( ! function_exists('input_video'))
 {
