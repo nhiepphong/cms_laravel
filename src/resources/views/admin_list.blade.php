@@ -29,7 +29,10 @@
                                     <select class="form-control m-bot15 select_with150" name="dropdown" id="choose_action">
                                         <option value="0">Choose an action...</option>
                                         <?php 
-                                            echo '<option value="2">Delete</option>';
+                                            if($is_delete == true)
+                                            {
+                                                echo '<option value="2">Delete</option>';
+                                            }
                                             echo '<option value="3">Active</option>';
                                             echo '<option value="4">Unactive</option>';
                                         ?>
