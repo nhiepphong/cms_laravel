@@ -705,7 +705,7 @@ a:hover, a:focus {
     font-size: 16px;
 }
 #main-menu-wrapper ul.wraplist {
-    padding-bottom: 0px;
+    padding-bottom: 40px;
 }
 #main-menu-wrapper li ul.sub-menu {
     padding-left: 45px;
