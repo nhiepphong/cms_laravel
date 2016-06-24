@@ -38,6 +38,8 @@
 
 <script type="text/javascript" src="{{ $assetURL }}plugins/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
 
+<script type="text/javascript" src="{{ $assetURL }}scripts/bootstrapValidator.min.js"></script>
+
 <!-- CORE TEMPLATE JS - START --> 
 <script src="{{ $assetURL }}scripts/scripts.js" type="text/javascript"></script> 
 <script src="{{ $assetURL }}scripts/scripts_framework.js" type="text/javascript"></script> 

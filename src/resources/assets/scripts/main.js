@@ -22,3 +22,7 @@ function loadPageCropImage(width, height, name)
         }
     );
 }
+
+$(document).ready(function() {
+    $('.form_submit').bootstrapValidator();
+});

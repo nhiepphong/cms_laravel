@@ -73,13 +73,23 @@ if ( ! function_exists('input_txt'))
             $value = '';
         }
 
+        $validation = "";
+
+        if(property_exists($data,'required'))
+        {
+            if($data->required)
+            {
+                $validation = 'required data-bv-notempty-message="The '.$data->label.' is required and cannot be empty"';
+            }
+        }
+
         if(isset($value))
         {
-            $html .= '<input type="text" class="form-control" placeholder="'.$data->label.'" id="'.$name.'" name="'.$name.'" value="'.$value.'" />';
+            $html .= '<input '.$validation.' type="text" class="form-control" placeholder="'.$data->label.'" id="'.$name.'" name="'.$name.'" value="'.$value.'" />';
         }
         else
         {
-            $html .= '<input type="text" class="form-control" placeholder="'.$data->label.'" id="'.$name.'" name="'.$name.'" />';
+            $html .= '<input '.$validation.' type="text" class="form-control" placeholder="'.$data->label.'" id="'.$name.'" name="'.$name.'" />';
         }
         
         $html .= '</div>';
@@ -191,7 +201,6 @@ if ( ! function_exists('input_radio'))
     function input_radio($name = '',$data = null)
     {
 
-
         $html = '<div class="form-group has-static">';
         
         $type = $data[0];
@@ -215,13 +224,24 @@ if ( ! function_exists('input_radio'))
         {
             $value = 0;
         }
+
+        $validation = "";
+
+        if(property_exists($data,'required'))
+        {
+            if($data->required)
+            {
+                $validation = 'required data-bv-notempty-message="The '.$data->label.' is required and cannot be empty"';
+            }
+        }
+
         if(property_exists($data,'valueSource'))
         {
             $i = 0;
             foreach($data->valueSource as $k=>$v)
             {
                 $html .= '<li>';
-                $html .= '<input tabindex="5" type="radio" class="icheck-minimal-blue" '.($value == $k ? 'checked' : '').' name="'.$name.'" id="'.$name.'_'.$i.'" value="'.$k.'">';
+                $html .= '<input '.$validation.' tabindex="5" type="radio" class="icheck-minimal-blue" '.($value == $k ? 'checked' : '').' name="'.$name.'" id="'.$name.'_'.$i.'" value="'.$k.'">';
                 $html .= '<label class="icheck-label form-label" for="'.$name.'_'.$i.'">'.$v.'</label>';
                 $html .= '</li>';
                 $i++;
@@ -527,8 +547,18 @@ if ( ! function_exists('input_select'))
             $value = '';
         }
 
-        $html .= '<select name="'.$name.'" class="form-control m-bot15">';
-        $html .= '<option value="0" selected="selected">NONE</option>';
+        $validation = "";
+
+        if(property_exists($data,'required'))
+        {
+            if($data->required)
+            {
+                $validation = 'required data-bv-notempty-message="The '.$data->label.' is required and cannot be empty"';
+            }
+        }
+
+        $html .= '<select '.$validation.' name="'.$name.'" class="form-control m-bot15">';
+        $html .= '<option value="">NONE</option>';
         if(property_exists($data,'valueSource'))
         {
             foreach($data->valueSource as $dt)
