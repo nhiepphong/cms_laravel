@@ -39,7 +39,6 @@ php artisan backend:install
 Update View And Asset Backend
 
 ```php 
-php artisan vendor:publish --bench=backend --force
 php artisan vendor:publish --provider="Nhiepphong\Backend\Providers\BackendServiceProvider"
 ```
 
