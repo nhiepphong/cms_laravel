@@ -30,13 +30,16 @@ $(document).ready(function() {
         var $form = $(e.target);
         var bv = $form.data('bootstrapValidator');
 
-        $.post($form.attr('action'), $form.serialize())
+        var data = $form.serialize();
+        data += "&submit=submit";
+        
+        $.post($form.attr('action'), data)
         .success( function(msg) { 
             // great success
             window.history.back();
          })
         .fail( function(xhr, status, error) {
             alert("Error!");
-        })
+        });
     });
 });

@@ -60,9 +60,9 @@ class ManagerEditController extends Controller
                             if(!empty($v) && empty($value["image"]))
                                 $value["image"] = $this->FilterData($input,$k,$v);
                         }
-                        else if(strtolower($k) == 'image' && $input['fields'][$k][1]->resize == true)
+                        else if($input['fields'][$k][0] == "img" && $input['fields'][$k][1]->resize == true)
                         {
-                            if(!empty($v))
+                            if(!empty($v) && $v != "")
                             {
                                 $value[$k] = $this->FilterData($input,$k,$v);
                             }

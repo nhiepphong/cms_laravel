@@ -609,13 +609,13 @@ if ( ! function_exists('input_select_multiple'))
             $value = '';
         }
 
-        $html .= '<select name="'.$name.'" id="'.$name.'" multiple="multiple">';
+        $html .= '<select name="'.$name.'[]" id="'.$name.'" multiple="multiple">';
         
         if(property_exists($data,'valueSource'))
         {
             foreach($data->valueSource as $dt)
             {
-                if($dt->k == $value)
+                if(in_array($dt->k, $value))
                 {
                     $html .= '<option value="'.$dt->k.'" selected="selected">'.$dt->v.'</option>';
                 }   
