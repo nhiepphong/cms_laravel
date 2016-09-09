@@ -24,5 +24,19 @@ function loadPageCropImage(width, height, name)
 }
 
 $(document).ready(function() {
-    $('.form_submit').bootstrapValidator();
+    $('.form_submit').bootstrapValidator().on('success.form.bv', function(e) {  
+    
+        e.preventDefault();
+        var $form = $(e.target);
+        var bv = $form.data('bootstrapValidator');
+
+        $.post($form.attr('action'), $form.serialize())
+        .success( function(msg) { 
+            // great success
+            window.history.back();
+         })
+        .fail( function(xhr, status, error) {
+            alert("Error!");
+        })
+    });
 });
