@@ -27,19 +27,31 @@ $(document).ready(function() {
     $('.form_submit').bootstrapValidator().on('success.form.bv', function(e) {  
     
         e.preventDefault();
+        if(editorList.length > 0)
+        {
+            editorList.forEach(function(entry) {
+                $("#" + entry.k).val(entry.v.html());
+            });
+        }
         var $form = $(e.target);
         var bv = $form.data('bootstrapValidator');
 
-        var data = $form.serialize();
-        data += "&submit=submit";
-        
-        $.post($form.attr('action'), data)
-        .success( function(msg) { 
-            // great success
-            window.history.back();
-         })
-        .fail( function(xhr, status, error) {
-            alert("Error!");
+        var formData = new FormData($form[0]);
+        formData.append("submit", "submit");
+        $.ajax({
+            url: $form.attr('action'),
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+              window.history.back();
+            },
+            error: function(){
+                alert('error!');
+            }
         });
     });
 });

@@ -55,11 +55,17 @@
 <!-- CORE CSS TEMPLATE - END -->
 
 <!-- Script Editor -->
-<script type="text/javascript" charset="utf-8" src="{{ $assetURL }}editor/kindeditor.js"></script>
+<link rel="stylesheet" href="{{ $assetURL }}kindeditor/plugins/code/prettify.css" />
+<link rel="stylesheet" href="{{ $assetURL }}kindeditor/themes/default/default.css" />
+<script src="{{ $assetURL }}kindeditor/plugins/code/prettify.js"></script>
+<script type="text/javascript" charset="utf-8" src="{{ $assetURL }}kindeditor/kindeditor-all-min.js"></script>
+
+<link href="{{ $assetURL }}css/jquery.tagsinput.css" rel="stylesheet" type="text/css"/>
 
 <script>
 var base_url = "<?php echo url('/')?>";
 var CONTROLLER = "<?=CONTROLLER?>";
+var editorList = new Array();
 </script>
 
 <script src="{{ $assetURL }}scripts/jquery-1.11.2.min.js" type="text/javascript"></script>
