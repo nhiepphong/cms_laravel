@@ -386,23 +386,16 @@ if ( ! function_exists('input_textarea'))
         if(property_exists($data,'type') && $data->type == 'html')
         {
             $html .= '<script type="text/javascript">';
-            $html .= "KE.show({
-            id : '".$name."',
-            skinType: 'office',
-            cssPath : '".ROOT_PUBLIC."editor/index.css',
-            urlType : 'domain',
-            items : [
-            'source', 'fullscreen', 'print', 'undo', 'redo', 'cut', 'copy', 'paste',
-            'plainpaste', 'wordpaste', 'justifyleft', 'justifycenter', 'justifyright',
-            'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
-            'superscript', 'emoticons', 'link', 'unlink', '-',
-            'title', 'fontname', 'fontsize', 'textcolor', 'bgcolor', 'bold',
-            'italic', 'underline', 'strikethrough', 'removeformat', 'selectall', 'image',
-            'flash', 'media', 'table', 'hr', 'about'
-            ]
-            });
-            </script>";
-            $row = 15;
+            $html .= 'KindEditor.ready(function() {';
+            $html .= 'prettyPrint();';
+            $html .= '});';
+            $html .= 'KindEditor.ready(function(K) {';
+            $html .= 'editor = K.create(\'textarea[name="'.$name.'"]\', {';
+            $html .= 'allowFileManager : true';
+            $html .= '});';
+            $html .= 'editorList.push({"k":"'.$name.'", "v":editor});';
+            $html .= '});';
+            $html .= '</script>';
         }
         else if(property_exists($data,'type') && $data->type == 'flash')
         {
@@ -412,7 +405,7 @@ if ( ! function_exists('input_textarea'))
         {
         
         }
-        $html .= '<textarea class="form-control wysiwyg" id="'.$name.'" name="'.$name.'" cols="79" rows="'.$row.'">'.$value.'</textarea>';
+        $html .= '<textarea class="form-control" id="'.$name.'" name="'.$name.'" style="width:100%;height:300px;">'.$value.'</textarea>';
 
         $html .= '</div>';
         $html .= '</div>';

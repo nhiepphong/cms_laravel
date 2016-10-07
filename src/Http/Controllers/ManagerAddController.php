@@ -107,6 +107,8 @@ class ManagerAddController extends Controller
         }
         else
         {
+            $value['created_at']= \Carbon\Carbon::now()->toDateTimeString();
+            $value['updated_at']= \Carbon\Carbon::now()->toDateTimeString();
             $id_insert = DB::table($this->getTableNoPrefix($input['table']))->insertGetId($value);
             
             //echo "<script>location.href='".base_url().'admin/'.CONTROLLER.'/lists/'."';</script>";

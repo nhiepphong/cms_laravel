@@ -107,6 +107,7 @@ class ManagerEditController extends Controller
             }
         }
 
+        $value['updated_at']= \Carbon\Carbon::now()->toDateTimeString();
         DB::table($this->getTableNoPrefix($input['table']))->where('id', request()->segment(4))->update($value);
         
         //echo "<script>window.history.go(-2);</script>";
