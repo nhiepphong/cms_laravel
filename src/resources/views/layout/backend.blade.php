@@ -51,7 +51,10 @@
                             </ul>
                         </li>
                     </ul>     
-                </div>    
+                </div>  
+
+                <div id="cms-progress-bar"></div> 
+                  
             </div>
 
         </div>

@@ -42,15 +42,34 @@ $(document).ready(function() {
             url: $form.attr('action'),
             type: 'POST',
             data: formData,
-            async: false,
+            async: true,
             cache: false,
             contentType: false,
             processData: false,
+            mimeType:"multipart/form-data",
             success: function (returndata) {
               window.history.back();
             },
             error: function(){
                 alert('error!');
+            },
+            xhr: function(){
+                //upload Progress
+                var xhr = $.ajaxSettings.xhr();
+                if (xhr.upload) {
+                    xhr.upload.addEventListener('progress', function(event) {
+                        var percent = 0;
+                        var position = event.loaded || event.position;
+                        var total = event.total;
+                        if (event.lengthComputable) {
+                            percent = Math.ceil(position / total * 100);
+                        }
+                        //console.log(percent);
+                        //update progressbar
+                        $("#cms-progress-bar").css("width", + percent +"%");
+                    }, true);
+                }
+                return xhr;
             }
         });
     });
