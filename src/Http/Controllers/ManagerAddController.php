@@ -70,9 +70,9 @@ class ManagerAddController extends Controller
 
         if(isset($value['slug']))
         {
-            if(isset($value[$value['slug']]))
+            if(isset($input['fields']['slug'][1]->id))
             {
-                $value['slug'] = str_slug($value[$value['slug']], "-");
+                $value['slug'] = str_slug($value[$input['fields']['slug'][1]->id], "-");
             }
         }
         
