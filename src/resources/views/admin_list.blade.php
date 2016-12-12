@@ -160,16 +160,16 @@ function echoColumnTitle($k,$v,$sort,$by,$link,$start)
     {
         if(strtolower($by) == 'asc')
         {
-            echo '<th class="sorting_desc" onClick="onChangeLinkSort(\''.$link.$k.'/DESC/'.$start.'\');">'.$v[1].'</a></th>';
+            echo '<th class="sorting_desc" onClick="onChangeLinkSort(\''.$link.'/'.$k.'/DESC/'.$start.'\');">'.$v[1].'</a></th>';
         }
         else
         {
-            echo '<th class="sorting_asc"onClick="onChangeLinkSort(\''.$link.$k.'/ASC/'.$start.'\');">'.$v[1].'</a></th>';   
+            echo '<th class="sorting_asc"onClick="onChangeLinkSort(\''.$link.'/'.$k.'/ASC/'.$start.'\');">'.$v[1].'</a></th>';   
         }
     }
     else
     {
-        echo '<th class="sorting"onClick="onChangeLinkSort(\''.$link.$k.'/ASC/'.$start.'\');">'.$v[1].'</a></th>';   
+        echo '<th class="sorting"onClick="onChangeLinkSort(\''.$link.'/'.$k.'/ASC/'.$start.'\');">'.$v[1].'</a></th>';   
     }
 }
 
@@ -229,7 +229,7 @@ function echoColumn($k,$v,$data)
             }
             break;
         case 'select': 
-            echo '<td>'.$data->$k.'</td>'; 
+            echo '<td>'.$v[3][$data->$k].'</td>';
             break;
         case 'date': 
             echo '<td>'.date($v[2],strtotime($data->$k)).'</td>'; 
