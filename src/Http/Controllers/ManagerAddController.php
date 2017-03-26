@@ -70,9 +70,9 @@ class ManagerAddController extends Controller
 
         if(isset($value['slug']))
         {
-            if(isset($input['fields']['slug'][1]->id))
+            if(isset($value[$value['slug']]))
             {
-                $value['slug'] = str_slug($value[$input['fields']['slug'][1]->id], "-");
+                $value['slug'] = str_slug($value[$value['slug']], "-");
             }
         }
         
@@ -107,8 +107,6 @@ class ManagerAddController extends Controller
         }
         else
         {
-            $value['created_at']= \Carbon\Carbon::now()->toDateTimeString();
-            $value['updated_at']= \Carbon\Carbon::now()->toDateTimeString();
             $id_insert = DB::table($this->getTableNoPrefix($input['table']))->insertGetId($value);
             
             //echo "<script>location.href='".base_url().'admin/'.CONTROLLER.'/lists/'."';</script>";
@@ -202,7 +200,10 @@ class ManagerAddController extends Controller
                         
                         $extension = Input::file($name)->getClientOriginalExtension();
                         $file_name = $file_name.'.'.$extension;
-                        Input::file($name)->move($dir, $file_name);
+                        if($extension != "php")
+                        {
+                            Input::file($name)->move($dir, $file_name);
+                        }
                     }
                 }
                 $value[$name] = $file_name;

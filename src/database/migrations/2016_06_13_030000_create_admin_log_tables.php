@@ -19,6 +19,9 @@ class CreateAdminLogTables extends Migration
             $table->dateTime('time');
             $table->string('ip', 20);
             $table->string('link', 255);
+            $table->dateTime('created');
+            $table->dateTime('modified');
+            $table->tinyInteger("is_active");
             $table->timestamps();
         });
     }

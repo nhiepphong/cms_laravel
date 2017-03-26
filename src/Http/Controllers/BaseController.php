@@ -1,4 +1,5 @@
 <?php
+
 namespace Nhiepphong\Backend\Http\Controllers;
 
 use App\Http\Controllers\Controller;
@@ -22,7 +23,6 @@ class BaseController extends Controller
 
 	public function __construct()
     {
-
         $this->managerList      = new ManagerListController();
         $this->managerAdd       = new ManagerAddController();
         $this->managerEdit      = new ManagerEditController();
@@ -143,7 +143,6 @@ class BaseController extends Controller
 				Session::set("admin_user_id", $user->id);
 				Session::set("admin_group", $user->group_id);
 				Session::set("admin_permissions", $user->permissions);
-                Session::save();
                 
 				$this->_log_message();
                 

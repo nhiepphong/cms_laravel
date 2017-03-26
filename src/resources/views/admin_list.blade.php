@@ -160,16 +160,16 @@ function echoColumnTitle($k,$v,$sort,$by,$link,$start)
     {
         if(strtolower($by) == 'asc')
         {
-            echo '<th class="sorting_desc" onClick="onChangeLinkSort(\''.$link.'/'.$k.'/DESC/'.$start.'\');">'.$v[1].'</a></th>';
+            echo '<th class="sorting_desc" onClick="onChangeLinkSort(\''.$link.$k.'/DESC/'.$start.'\');">'.$v[1].'</a></th>';
         }
         else
         {
-            echo '<th class="sorting_asc"onClick="onChangeLinkSort(\''.$link.'/'.$k.'/ASC/'.$start.'\');">'.$v[1].'</a></th>';   
+            echo '<th class="sorting_asc"onClick="onChangeLinkSort(\''.$link.$k.'/ASC/'.$start.'\');">'.$v[1].'</a></th>';   
         }
     }
     else
     {
-        echo '<th class="sorting"onClick="onChangeLinkSort(\''.$link.'/'.$k.'/ASC/'.$start.'\');">'.$v[1].'</a></th>';   
+        echo '<th class="sorting"onClick="onChangeLinkSort(\''.$link.$k.'/ASC/'.$start.'\');">'.$v[1].'</a></th>';   
     }
 }
 

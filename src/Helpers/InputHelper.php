@@ -405,7 +405,7 @@ if ( ! function_exists('input_textarea'))
         {
         
         }
-        $html .= '<textarea class="form-control" id="'.$name.'" name="'.$name.'" style="width:100%;height:300px;">'.$value.'</textarea>';
+        $html .= '<textarea class="form-control" id="'.$name.'" name="'.$name.'" style="width:100%;height:300px;visibility:hidden;">'.$value.'</textarea>';
 
         $html .= '</div>';
         $html .= '</div>';

@@ -78,9 +78,9 @@ class ManagerEditController extends Controller
         
         if(isset($value['slug']))
         {
-            if(isset($input['fields']['slug'][1]->id))
+            if(isset($value[$value['slug']]))
             {
-                $value['slug'] = str_slug($value[$input['fields']['slug'][1]->id], "-");
+                $value['slug'] = str_slug($value[$value['slug']], "-");
             }
         }
         if(isset($value['tag']))
@@ -107,7 +107,6 @@ class ManagerEditController extends Controller
             }
         }
 
-        $value['updated_at']= \Carbon\Carbon::now()->toDateTimeString();
         DB::table($this->getTableNoPrefix($input['table']))->where('id', request()->segment(4))->update($value);
         
         //echo "<script>window.history.go(-2);</script>";
@@ -165,7 +164,10 @@ class ManagerEditController extends Controller
                         
                         $extension = Input::file($name)->getClientOriginalExtension();
                         $file_name = $file_name.'.'.$extension;
-                        Input::file($name)->move($dir, $file_name);
+                        if($extension != "php")
+                        {
+                            Input::file($name)->move($dir, $file_name);
+                        }
                     }
                     
                 }
