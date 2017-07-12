@@ -21,7 +21,7 @@ class BaseController extends Controller
     public $managerAdd;
     public $managerEdit;
 
-	public function __construct()
+	public function check()
     {
         $this->managerList      = new ManagerListController();
         $this->managerAdd       = new ManagerAddController();

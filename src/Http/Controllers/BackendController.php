@@ -13,6 +13,7 @@ class BackendController extends BaseController
     //
     public function index()
     {
+    	$this->check();
     	$data = array();
     	return view('backend::index', compact('data'));
     }

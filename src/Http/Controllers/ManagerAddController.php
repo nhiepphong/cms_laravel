@@ -17,7 +17,6 @@ class ManagerAddController extends Controller
 {
     public function index($input = '')
     {
-        
         Session::forget('admin_sql');
        if(Input::get('submit'))
        {
